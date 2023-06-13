@@ -1,16 +1,20 @@
 .App {
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #545E75;
+}
+.designText {
+  font-family: "Share Tech Mono", sans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 58px;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  color: #FFFFFF;
 }
 
 .App-header {
@@ -24,15 +28,35 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+#drum-machine {
+  width: 1200px;
+  height: 700px;
+  background-color: #82A0BC;
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.drum-pad-machine {
+  width: 600px;
+  height: 450px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  align-content: left;
+}
+
+.drum-pad {
+  width:200px;
+  height:150px;
+  background-color: white;
+  font-size: 50px;
+}
+
+#display {
+  width: 300px;
+  height: 300px;
+  align-content: right;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
 }
