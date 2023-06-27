@@ -1,12 +1,40 @@
 import './App.css';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 
 function App() {
   const [sound, setSound] = useState("");
+  const keyCodes = {
+    81: "Q",
+    87: "W",
+    69: "E",
+    65: "A",
+    83: "S",
+    68: "D",
+    90: "Z",
+    88: "X",
+    67: "C"
+  }
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.keyCode in keyCodes) {
+        document.getElementById(keyCodes[e.keyCode]).play().catch((err)=> {
+          if (err.type === "AbortError") {
+            console.log("abort error");
+          }
+        })
+        setSound(keyCodes[e.keyCode]);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  });
 
   const handleSound = (e) => {
     document.getElementById(e.target.value).play();
-    
+    setSound(e.target.id);
   }
   
   return (
